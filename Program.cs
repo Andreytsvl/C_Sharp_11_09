@@ -180,3 +180,37 @@ using static System.Console;
 //     }
 //     return result;
 // }
+
+// task 41 пользователь вводит с клавиатуры М чисел
+// посчитайте, сколько чисел больше 0 введено
+
+Clear();
+WriteLine("Введите массив целых чисел через пробел:");
+int[] array = GetArreyFromString(ReadLine());
+int result = NumberOverZero(array);
+WriteLine($"Количество чисел больше нуля: {result}");
+
+
+int NumberOverZero(int[] inArray)
+{
+    int count = 0;
+    for (int i = 0; i < inArray.Length; i++)
+    {
+        if (inArray[i] > 0)
+        {
+            count = count + 1;
+        }
+    }
+    return count;
+}
+
+int[] GetArreyFromString(string arrayString)
+{
+    string[] nums = arrayString.Split(" ", StringSplitOptions.RemoveEmptyEntries);
+    int[] result = new int[nums.Length];
+    for (int i = 0; i < result.Length; i++)
+    {
+        result[i] = Convert.ToInt32(nums[i]);
+    }
+    return result;
+}
