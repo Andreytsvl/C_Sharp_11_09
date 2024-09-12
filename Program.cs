@@ -184,33 +184,52 @@ using static System.Console;
 // task 41 пользователь вводит с клавиатуры М чисел
 // посчитайте, сколько чисел больше 0 введено
 
+// Clear();
+// WriteLine("Введите массив целых чисел через пробел:");
+// int[] array = GetArreyFromString(ReadLine());
+// int result = NumberOverZero(array);
+// WriteLine($"Количество чисел больше нуля: {result}");
+
+
+// int NumberOverZero(int[] inArray)
+// {
+//     int count = 0;
+//     for (int i = 0; i < inArray.Length; i++)
+//     {
+//         if (inArray[i] > 0)
+//         {
+//             count++;
+//         }
+//     }
+//     return count;
+// }
+
+// int[] GetArreyFromString(string arrayString)
+// {
+//     string[] nums = arrayString.Split(" ", StringSplitOptions.RemoveEmptyEntries);
+//     int[] result = new int[nums.Length];
+//     for (int i = 0; i < result.Length; i++)
+//     {
+//         result[i] = Convert.ToInt32(nums[i]);
+//     }
+//     return result;
+// }
+
+// task 43 Программа, которая находит точку пересечения двух прямых
+// y = k1 * x + b1 и y = k2 * x + b2 Константы задаются пользователем
+
 Clear();
-WriteLine("Введите массив целых чисел через пробел:");
-int[] array = GetArreyFromString(ReadLine());
-int result = NumberOverZero(array);
-WriteLine($"Количество чисел больше нуля: {result}");
+WriteLine("Введите b1 и к1 , b2 и к2 через пробел:");
+string[] nums = ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
+ 
+double[] point = GetPoint(double.Parse(nums[0]),double.Parse(nums[1]),double.Parse(nums[2]),double.Parse(nums[3]));
+WriteLine($"[{String.Join(";",point)}]");
 
-
-int NumberOverZero(int[] inArray)
+double[] GetPoint(double b1, double k1, double b2, double k2)
 {
-    int count = 0;
-    for (int i = 0; i < inArray.Length; i++)
-    {
-        if (inArray[i] > 0)
-        {
-            count = count + 1;
-        }
-    }
-    return count;
-}
+    double[] point = new double[2];
+    point[0] = (b2-b1)/(k1-k2);
+    point[1] = point[0]*k1+b1;
 
-int[] GetArreyFromString(string arrayString)
-{
-    string[] nums = arrayString.Split(" ", StringSplitOptions.RemoveEmptyEntries);
-    int[] result = new int[nums.Length];
-    for (int i = 0; i < result.Length; i++)
-    {
-        result[i] = Convert.ToInt32(nums[i]);
-    }
-    return result;
+    return point;
 }
