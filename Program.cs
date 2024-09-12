@@ -85,23 +85,98 @@ using static System.Console;
 
 // task 40 Программа принимает длинны трёх сторон треугольника
 // и проверяет, может ли существовать такой треугольник
-Clear();
-Write("Введите стороны треугольника через пробел: ");
-string[] nums = ReadLine().Split(" ",StringSplitOptions.RemoveEmptyEntries);
-if(IsTriangle(int.Parse(nums[0]),int.Parse(nums[1]),int.Parse(nums[2])))
-{
-    WriteLine("Треугольник существует.");
-}
-else
-{
-    WriteLine("Треугольник не существует.");
-}
+// Clear();
+// Write("Введите стороны треугольника через пробел: ");
+// string[] nums = ReadLine().Split(" ",StringSplitOptions.RemoveEmptyEntries);
+// if(IsTriangle(int.Parse(nums[0]),int.Parse(nums[1]),int.Parse(nums[2])))
+// {
+//     WriteLine("Треугольник существует.");
+// }
+// else
+// {
+//     WriteLine("Треугольник не существует.");
+// }
 
 
-bool IsTriangle(int a, int b, int c)
-{
-    return ((a+b>c)&(a+c>b)&(b+c>a));
-}
+// bool IsTriangle(int a, int b, int c)
+// {
+//     return ((a+b>c)&(a+c>b)&(b+c>a));
+// }
 
 // task 42 Напишите программу, которая преобразует десятичное
 // число в двоичное.
+// Clear();
+// Write("Введите десятичное число:");
+
+// int n = int.Parse(ReadLine());
+// Write("Введите систему счисления для перевода:");
+// int sys = int.Parse(ReadLine());
+// // первый способ - метод "из коробки"
+// // string s1 = Convert.ToString(n, 2);
+// // WriteLine(s1);
+// string s2 = GetDoubleFromDecimal(n,sys);
+// WriteLine(s2);
+// // второй способ:
+
+// string GetDoubleFromDecimal(int n, int sys)
+// {
+//     string result = "";
+//     string chars = "0123456789ABCDEF";
+//     while (n > 0)
+//     {
+//         int k = n / sys;
+//         int ost = n - k * sys;
+//         result = chars[ost].ToString() + result;
+//         n = n / sys;
+//     }
+//     return result;
+// }
+
+// task 42 Без рекурсии вывдите первые Н чисел Фибоначчи.
+
+// Clear();
+// Write("Введите число N:");
+// int n = int.Parse(ReadLine());
+// PrintNumber(0,1,n);
+
+// void PrintNumber(int a1, int a2, int size)
+// {
+//     Write($"{a1} {a2} ");
+//     for (int i = 0; i < size - 2; i++)
+//     {
+//         Write($"{a1 + a2} ");
+//         int k = a1 + a2;
+//         a1 = a2;
+//         a2 = k;
+//     }
+// }
+
+// task 45 Напишите программу, кот. будет создавать копию
+// массива с помощью поэлементного копирования
+
+// Clear();
+// WriteLine("Введите массив через пробел:");
+// int[] array = GetArreyFromString(ReadLine());
+// int[] arrayCopy = CopyArray(array);
+// WriteLine(string.Join(" ",arrayCopy));
+
+// int[] CopyArray(int[] inArray)
+// {
+//     int[] result = new int[inArray.Length];
+//     for (int i = 0; i < result.Length; i++)
+//     {
+//         result[i] = inArray[i];
+//     }
+//     return result;
+// }
+
+// int[] GetArreyFromString(string arrayString)
+// {
+//     string[] nums = arrayString.Split(" ",StringSplitOptions.RemoveEmptyEntries);
+//     int[] result = new int[nums.Length];
+//     for (int i = 0; i < result.Length; i++)
+//     {
+//        result[i]=Convert.ToInt32 (nums[i]);
+//     }
+//     return result;
+// }
